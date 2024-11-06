@@ -1,11 +1,12 @@
 const express = require('express');
+const router = express.Router();
+
 const { TeacherRegisterUser,
     getUsers,
     StudentRegistrationUser,
     getStudentUser,
     checkLoginDetail
 } = require('../controller/registrationController');
-const router = express.Router();
 
 // Register a new user
 router.post('/registerteacher', TeacherRegisterUser);
