@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const TeacherRegistration = require('../models/TeacherRegistrationModel');
 const StudentRegistration = require('../models/StudentRegistrationModel');
-const LoginDetail = require('../models/LoginModel');
+// const LoginDetail = require('../models/LoginModel');
 
 // Create a new teacher user
 const TeacherRegisterUser = async (req, res) => {
