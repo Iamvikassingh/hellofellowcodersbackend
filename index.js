@@ -10,7 +10,11 @@ connectToDb(`${ConnectionString}/${DataBaseName}`) // connection String is here
 const userRouter = require('./router/hellowfellowcoderregisterrouter');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://hellofellowcoders.netlify.app',  // Allow only your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],  // If needed, add any specific headers
+}));
 app.use(express.json());
 app.use('/api/users', userRouter);
 
