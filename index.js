@@ -6,15 +6,18 @@ const PORT = process.env.PORT || 3000;
 const ConnectionString = process.env.CONNECTIONSTRINGTODB
 const DataBaseName = 'hellofellowcoders'
 connectToDb(`${ConnectionString}/${DataBaseName}`) // connection String is here
+const originforcors = process.env.ORIGIN
 
 const userRouter = require('./router/hellowfellowcoderregisterrouter');
 
 const app = express();
-app.use(cors({
-    origin: 'https://hellofellowcoders.netlify.app',  // Allow only your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],  // If needed, add any specific headers
-}));
+app.use(cors(
+    {
+        origin: `${originforcors}`,  // Allow only your frontend URL
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],  // If needed, add any specific headers
+    }
+));
 app.use(express.json());
 app.use('/api/users', userRouter);
 
